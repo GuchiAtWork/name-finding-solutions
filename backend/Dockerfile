@@ -1,10 +1,11 @@
-FROM python:3.10.6-slim-buster
+FROM python:3.11.1-slim-bullseye
 
 WORKDIR /srv
 
-COPY requirements.txt /srv/
+COPY requirements.txt /srv
 RUN pip3 install -r requirements.txt
 
-COPY . /srv/
+COPY . /srv
 
-CMD ["python3", "-m", "flask", "run"]
+ENTRYPOINT [ "python3" ]
+CMD ["app.py"]
